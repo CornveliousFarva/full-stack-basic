@@ -1,9 +1,10 @@
 // Loading the DOM Content
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('http://localhost:5000/getAll')
+    fetch('http://localhost:5000/')
     .then(response => response.json())
     .then(data => loadHTMLTable(data['data']));
-})
+    
+});
 
 // Add and delete items from the body
 document.querySelector('table tbody').addEventListener('click', function(event){
@@ -20,7 +21,7 @@ const updateBtn = document.querySelector('#update-row-btn');
 const searchBtn = document.querySelector('#search-btn');
 
 // Search button
-searchBtn.onclick = function() {
+searchBtn.onClick = function() {
     const searchValue = document.querySelector('#search-input').value;
 
     fetch('http://localhost:5000/search/' + searchValue)
